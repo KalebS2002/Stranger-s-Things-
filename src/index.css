@@ -1,0 +1,12 @@
+#title{
+    text-align: center;
+    color: whitesmoke;
+    background-color: rgb(72, 145, 145);
+}
+
+nav{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
