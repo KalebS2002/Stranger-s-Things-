@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-
 const posts = () => {};
 
 const Apps = () => {
@@ -10,15 +9,28 @@ const Apps = () => {
   useEffect(() => {}, []);
   return (
     <BrowserRouter>
-      <div>
-        <h1 id="title">Strangers Things</h1>
+      <div id="topOfPage">
         <nav>
-          <Link to="/home">Home</Link>
-          <Link to="/posts">Posts ({posts.length})</Link>
-          <Link to="/profile">Profile</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/register">Register</Link>
+          <aside>
+            <h1 id="title">Stranger Things</h1>
+          </aside>
+          <Link to="/home" className="options">
+            Home
+          </Link>
+          <Link to="/posts" className="options">
+            Posts ({posts.length})
+          </Link>
+          <Link to="/profile" className="options">
+            Profile
+          </Link>
+          <Link to="/login" className="options">
+            Login
+          </Link>
+          <Link to="/register" className="options">
+            Register
+          </Link>
         </nav>
+
         <Route path="/home" element={<div>Home</div>} />
         <Route path="/posts" element={<div>Posts</div>} />
         <Route path="/profile" element={<div>Profile</div>} />
