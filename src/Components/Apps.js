@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import Login from "./Login";
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 const posts = () => {};
@@ -38,6 +39,7 @@ const Apps = () => {
         <Route path="/register" element={<div>Register</div>} />
       </div>
 
+      <Login></Login>
       {/* Maybe something like this...
       
       <Posts></Posts>
