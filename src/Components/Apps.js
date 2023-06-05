@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import Login from "./Login";
+import Post from "./Posts";
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 const posts = () => {};
@@ -40,6 +41,8 @@ const Apps = () => {
       </div>
 
       <Login></Login>
+
+      <Post></Post>
       {/* Maybe something like this...
       
       <Posts></Posts>

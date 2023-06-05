@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 const Login = () => {
-  console.log("export worked!");
+  console.log("Login is working!");
   return (
     <>
       <h2 id="logInHeader">Log In</h2>
