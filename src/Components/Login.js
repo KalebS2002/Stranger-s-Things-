@@ -20,8 +20,11 @@ const Login = () => {
             placeholder="enter password"
             className="input"
           ></input>
-          <button id="submitLogIn" type="submit">
+          <button className="logInButtons" id="submitLogIn" type="submit">
             Submit
+          </button>
+          <button className="logInButtons" id="submitLogIn" type="submit">
+            New Here? Sign Up!
           </button>
         </div>
       </div>
