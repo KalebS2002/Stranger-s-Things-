@@ -29,16 +29,18 @@ const NavBar = () => {
             Register
           </Link>
         </nav>
-        <Route path="/" element={<div>Home</div>}></Route>
-
-        <Route path="/posts" element={<div>Posts</div>}></Route>
-
-        <Route path="/profile" element={<div>Profile</div>}></Route>
-
-        <Route path="/login" element={<div>login</div>}></Route>
-
-        <Route path="/register" element={<div>Register</div>}></Route>
       </div>
+      <Route path="/" element={<div>Home</div>}></Route>
+
+      <Route path="/posts" element={<div>Posts</div>}></Route>
+
+      <Route path="/profile" element={<div>Profile</div>}></Route>
+
+      <Route path="/login" element={<Login />}>
+        <Login />
+      </Route>
+
+      <Route path="/register" element={<div>Register</div>}></Route>
 
       {/* <Post></Post> */}
       {/* Maybe something like this...
