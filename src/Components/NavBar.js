@@ -8,6 +8,8 @@ import Home from "./Home";
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
+let posts = "hi";
+
 const NavBar = () => {
   return (
     <BrowserRouter>
@@ -20,7 +22,7 @@ const NavBar = () => {
             Home
           </Link>
           <Link to="/posts" className="options">
-            Posts ({Post.length})
+            Posts ({posts.length})
           </Link>
           <Link to="/profile" className="options">
             Profile
