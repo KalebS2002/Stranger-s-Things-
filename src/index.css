@@ -65,15 +65,7 @@ body{
     color: transparent;
     text-shadow: none;
 }
-/* #submitLogIn{
-    color: white;
-    padding: 6px;
-    margin: 12px;
-    border-radius: 6px;
-    background-color: lightblue;
-    border: 2px solid lightgray;
-    transition: 0.6s;
-} */
+
 #submitLogIn:hover{
     background-color: white;
     color: lightblue;
