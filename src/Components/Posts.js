@@ -6,8 +6,12 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 const Post = () => {
   console.log("Post in working!");
   return (
-    <div>
-      <h1>hello world</h1>
+    <div id="postContainer">
+      <div className="msgBlock">
+        <h2>From:</h2>
+        <p>This is a message</p>
+        <p>This is a post</p>
+      </div>
     </div>
   );
 };

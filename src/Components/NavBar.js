@@ -1,7 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import Login from "./Login";
+import Register from "./Register";
 import Post from "./Posts";
+import Profile from "./Profile";
+import Home from "./Home";
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
@@ -32,15 +35,21 @@ const NavBar = () => {
       </div>
       <Route path="/" element={<div>Home</div>}></Route>
 
-      <Route path="/posts" element={<div>Posts</div>}></Route>
+      <Route path="/posts" element={<div>Posts</div>}>
+        <Post />
+      </Route>
 
-      <Route path="/profile" element={<div>Profile</div>}></Route>
+      <Route path="/profile" element={<Profile />}>
+        <Profile />
+      </Route>
 
       <Route path="/login" element={<Login />}>
         <Login />
       </Route>
 
-      <Route path="/register" element={<div>Register</div>}></Route>
+      <Route path="/register" element={<Register />}>
+        <Register />
+      </Route>
 
       {/* <Post></Post> */}
       {/* Maybe something like this...

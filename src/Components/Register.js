@@ -2,14 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Post from "./Posts";
-import Profile from "./Profile";
 
-const Login = () => {
-  console.log("Login is working!");
+const Register = () => {
+  console.log("Register is working!");
   return (
     <>
-      <h2 id="logInHeader">Log In</h2>
+      <h2 id="logInHeader">Sign Up</h2>
       <div id="logInSection">
         <div id="inputSection">
           <input
@@ -26,7 +24,7 @@ const Login = () => {
             Submit
           </button>
           <button className="logInButtons" id="submitLogIn" type="submit">
-            New Here? Sign Up!
+            Log In
           </button>
         </div>
       </div>
@@ -34,4 +32,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
