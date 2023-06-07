@@ -7,6 +7,7 @@ import Profile from "./Profile";
 
 const Login = () => {
   console.log("Login is working!");
+
   return (
     <>
       <h2 id="logInHeader">Log In</h2>
