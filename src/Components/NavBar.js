@@ -8,9 +8,9 @@ import Home from "./Home";
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
-let posts = "h";
-
 const NavBar = () => {
+  const [posts, setPosts] = useState([]);
+
   return (
     <BrowserRouter>
       <div id="topOfPage">

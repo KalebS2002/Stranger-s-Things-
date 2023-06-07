@@ -51,21 +51,24 @@ const Login = () => {
             type="text"
             placeholder="enter username"
             className="input"
-            value={username}
-            onChange={console.log("help")}
+            id="usernameInput"
+            // value={username}
+            // onChange={console.log("help")}
           ></input>
           <input
             type="text"
             placeholder="enter password"
             className="input"
-            value={password}
-            onChange={console.log("me")}
+            id="passwordInput"
+            // value={password}
+            // onChange={console.log("me")}
           ></input>
           <button
             className="logInButtons"
             id="submitLogIn"
             type="submit"
             // onClick={LoginFunc}
+            // onClick={returnText}
           >
             Submit
           </button>
