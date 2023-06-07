@@ -8,7 +8,7 @@ import Home from "./Home";
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
-let posts = "hi";
+let posts = "h";
 
 const NavBar = () => {
   return (

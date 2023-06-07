@@ -51,6 +51,9 @@ body{
     margin: 12px;
     width: 30%;
 }
+#inputSection > label > .input{
+    width: 100%;
+}
 .input{
     margin: 15px;
     border: none;
@@ -94,12 +97,20 @@ body{
     margin: 10px;
     display: flex;
     flex-direction: column;
-    float: left;
     background-color: rgb(255, 255, 255);
     border-radius: 6px;
     box-shadow: 1px 1px 3px black;
 }
+.h{
+    color: rgb(115, 147, 157);
+}
 
+#itemDes{
+display: flex;
+text-rendering: geometricPrecision;
+justify-content: flex-end;
+color: rgb(115, 147, 157);
+}
 #postContainer{
     display: flex;
     flex-direction: column;
