@@ -23,41 +23,40 @@ const Register = () => {
       <form onSubmit={handleSubmit}>
         <div id="logInSection">
           <div id="inputSection">
-            <label className="label" htmlFor="username">
-              <input
-                type="text"
-                placeholder="enter username"
-                className="input"
-                value={username}
-                onChange={handleChange}
-              ></input>
-            </label>
+            <input
+              type="text"
+              placeholder="enter username"
+              className="input"
+              value={username}
+              onChange={handleChange}
+            ></input>
 
-            <label className="label" htmlFor="password">
-              <input
-                type="text"
-                placeholder="enter password"
-                className="input"
-                value={password}
-                onChange={handleChange}
-              ></input>
-            </label>
-            <label className="label" htmlFor="password">
-              <input
-                type="text"
-                placeholder="re-enter password"
-                className="input"
-              ></input>
-            </label>
-            <button className="logInButtons" id="submitLogIn" type="submit">
-              Submit
-            </button>
+            <input
+              type="text"
+              placeholder="enter password"
+              className="input"
+              value={password}
+              onChange={handleChange}
+              min={6}
+            ></input>
+
+            <input
+              type="text"
+              placeholder="re-enter password"
+              className="input"
+              min={6}
+            ></input>
+
             <button
               className="logInButtons"
               id="submitLogIn"
               type="submit"
               onSubmit={handleSubmit}
             >
+              Submit
+            </button>
+
+            <button className="logInButtons" id="submitLogIn" type="submit">
               Log In
             </button>
           </div>
