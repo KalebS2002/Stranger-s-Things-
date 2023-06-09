@@ -17,6 +17,8 @@ const Login = () => {
 
   const handleOnChange = () => {
     console.log("on change is working");
+    console.log({ username });
+    console.log9({ password });
   };
 
   // onChange={event => setPassword(event.target.value)}
@@ -47,14 +49,14 @@ const Login = () => {
         },
         body: JSON.stringify({
           user: {
-            username: username,
-            password: password,
+            username: { username },
+            password: { password },
           },
         }),
       });
       const result = await response.json();
       console.log(result);
-      console.log("Credentials are correct!");
+      console.log("login function is active");
       return result;
     } catch (err) {
       console.error(err);
@@ -83,7 +85,7 @@ const Login = () => {
   return (
     <>
       <h2 id="logInHeader">Log In</h2>
-      <form id="loginForm" onChange={handleOnChange}>
+      <form id="loginForm">
         <div id="logInSection">
           <div id="inputSection">
             <label htmlFor="usernameInput">Enter Username</label>
@@ -92,8 +94,12 @@ const Login = () => {
               // placeholder="enter username"
               className="input"
               id="usernameInput"
-              // value={username}
-              // onClick={console.log(recievedInput)}
+              value={username}
+              onChange={(e) => {
+                setUsername(e.target.value);
+                e.preventDefault();
+                console.log({ username });
+              }}
             ></input>
             <label htmlFor="passwordInput">Enter Password</label>
             <input
@@ -102,14 +108,20 @@ const Login = () => {
               className="input"
               id="passwordInput"
               // value={password}
-              // onChange={console.log("me")}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                e.preventDefault();
+                console.log({ password });
+              }}
             ></input>
             <button
               className="logInButtons"
               id="submitLogIn"
               type="submit"
-              // onClick={LoginFunc}
-              // onClick={onFormSubmit()}
+              onClick={(e) => {
+                e.preventDefault();
+                LoginFunc();
+              }}
             >
               Submit
             </button>
