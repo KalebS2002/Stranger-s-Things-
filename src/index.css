@@ -101,10 +101,12 @@ body{
     border-radius: 6px;
     box-shadow: 1px 1px 3px black;
 }
-.h{
+.postMsg{
     color: rgb(115, 147, 157);
 }
-
+.msgUsername{
+    color: rgb(0, 0, 157);
+}
 #itemDes{
 display: flex;
 text-rendering: geometricPrecision;
