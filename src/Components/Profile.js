@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 const USER_NAME = "Kaleb";
 
 const Profile = () => {
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
   console.log("Profile is working!");
   return (
     <div id="profileContainer">

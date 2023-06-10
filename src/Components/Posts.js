@@ -13,7 +13,9 @@ const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
 // let postMsgs = Object.values(fetchData());
 // console.log(postMsgs);
 
-const Post = () => {
+const Posts = () => {
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   console.log("Post in working!");
   const [posts, setPosts] = useState([]);
 
@@ -158,4 +160,4 @@ const Post = () => {
   );
 };
 
-export default Post;
+export default Posts;

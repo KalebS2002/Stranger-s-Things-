@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Post from "./Posts";
+import Posts from "./Posts";
 import Profile from "./Profile";
 // import LoginFunc from "./LoginFunc";
 const COHORT_NAME = "2303-FTB-ET-WEB-AM";
@@ -10,16 +10,21 @@ const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
 const TOKEN_STRING_HERE =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDgwYjE0YTUxMjQxMzAwMTQ0MTExZjEiLCJ1c2VybmFtZSI6ImthbGViUzIwMDIiLCJpYXQiOjE2ODYxNTU1OTR9.zDKJC2eufW-FIDCCHRlP7iJtF0Mu79Btoo2DyfFL3bk";
 
-const Login = () => {
+const Login = ({ isLoggedIn, setIsLoggedIn }) => {
   console.log("Login is working!");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleOnChange = () => {
-    console.log("on change is working");
-    console.log({ username });
-    console.log9({ password });
-  };
+  const [userAccount, setUserAccount] = useState({
+    username: "",
+    password: "",
+    _id: "",
+  });
+  // const handleOnChange = () => {
+  //   console.log("on change is working");
+  //   console.log({ username });
+  //   console.log({ password });
+  // };
 
   // onChange={event => setPassword(event.target.value)}
   // onChange={event => setUsername(event.target.value)}
@@ -49,20 +54,24 @@ const Login = () => {
         },
         body: JSON.stringify({
           user: {
-            username: { username },
-            password: { password },
+            username: username,
+            password: password,
           },
         }),
       });
       const result = await response.json();
-      console.log(result);
+      // console.log(result);
       console.log("login function is active");
+      await setIsLoggedIn(true);
+      // await setUserAccount(result);
+      console.log(isLoggedIn);
+      myData();
       return result;
     } catch (err) {
       console.error(err);
     }
-    // LoginFunc();
   };
+  // LoginFunc();
 
   const myData = async () => {
     try {
@@ -74,6 +83,8 @@ const Login = () => {
       });
       const result = await response.json();
       console.log(result);
+      await setUserAccount(result.data);
+      console.log(userAccount);
       return result;
     } catch (err) {
       console.error(err);
@@ -98,12 +109,12 @@ const Login = () => {
               onChange={(e) => {
                 setUsername(e.target.value);
                 e.preventDefault();
-                console.log({ username });
+                // console.log({ username });
               }}
             ></input>
             <label htmlFor="passwordInput">Enter Password</label>
             <input
-              type="text"
+              type="password"
               // placeholder="enter password"
               className="input"
               id="passwordInput"
@@ -111,12 +122,11 @@ const Login = () => {
               onChange={(e) => {
                 setPassword(e.target.value);
                 e.preventDefault();
-                console.log({ password });
+                // console.log({ password });
               }}
             ></input>
             <button
               className="logInButtons"
-              id="submitLogIn"
               type="submit"
               onClick={(e) => {
                 e.preventDefault();
@@ -125,7 +135,7 @@ const Login = () => {
             >
               Submit
             </button>
-            <button className="logInButtons" id="submitLogIn" type="submit">
+            <button className="logInButtons" type="submit">
               New Here? Sign Up!
             </button>
           </div>

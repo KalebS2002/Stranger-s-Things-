@@ -69,10 +69,6 @@ body{
     text-shadow: none;
 }
 
-#submitLogIn:hover{
-    background-color: white;
-    color: lightblue;
-}
 .logInButtons{
     color: white;
     padding: 6px;
@@ -81,6 +77,10 @@ body{
     background-color: lightblue;
     border: 2px solid lightgray;
     transition: 0.6s;
+}
+.logInButtons:hover{
+    background-color: white;
+    color: lightblue;
 }
 #profileContainer{
     display: flex;
