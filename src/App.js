@@ -25,7 +25,7 @@ const App = () => {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userAccount, setUserAccount] = useState([]);
-
+  console.log(isLoggedIn);
   return (
     <BrowserRouter>
       <div id="topOfPage">

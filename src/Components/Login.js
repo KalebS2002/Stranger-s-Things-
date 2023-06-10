@@ -14,36 +14,12 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
   console.log("Login is working!");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+  console.log(isLoggedIn);
   const [userAccount, setUserAccount] = useState({
     username: "",
     password: "",
     _id: "",
   });
-  // const handleOnChange = () => {
-  //   console.log("on change is working");
-  //   console.log({ username });
-  //   console.log({ password });
-  // };
-
-  // onChange={event => setPassword(event.target.value)}
-  // onChange={event => setUsername(event.target.value)}
-
-  // let recievedInput = document.getElementById("usernameInput").value;
-  // console.log(recievedInput);
-
-  // const onFormSubmit = (event) => {
-  //   console.log(event);
-  //   const loginForm = document.getElementById("loginForm");
-  //   loginForm.addEventListener("submit", (e) => {
-  //     e.preventDefault();
-  //     console.log("Form has been submitted");
-
-  //     // const loginData = new FormData(event.target);
-  //     // const loginObj = Object.fromEntries(loginData.entries());
-  //     // console.log(loginObj);
-  //   });
-  // };
 
   const LoginFunc = async () => {
     try {
@@ -60,12 +36,9 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
         }),
       });
       const result = await response.json();
-      // console.log(result);
-      console.log("login function is active");
       await setIsLoggedIn(true);
-      // await setUserAccount(result);
-      console.log(isLoggedIn);
-      myData();
+      console.log("isLogged in = " + isLoggedIn);
+      await myData();
       return result;
     } catch (err) {
       console.error(err);
@@ -82,8 +55,8 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
         },
       });
       const result = await response.json();
-      console.log(result);
       await setUserAccount(result.data);
+      console.log("user data successfully retrieved! Look below!");
       console.log(userAccount);
       return result;
     } catch (err) {
