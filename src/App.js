@@ -6,6 +6,7 @@ import Posts from "./Components/Posts";
 import Profile from "./Components/Profile";
 import Register from "./Components/Register";
 import NavBar from "./Components/NavBar";
+import AddNewPost from "./Components/AddNewPost";
 import {
   BrowserRouter,
   Route,
@@ -25,7 +26,6 @@ const App = ({ token, setToken }) => {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userAccount, setUserAccount] = useState([]);
-  const [appState, setAppState] = useState();
   // const [token, setToken] = useState("");
   console.log(isLoggedIn);
 
@@ -59,33 +59,33 @@ const App = ({ token, setToken }) => {
         path="/"
         isLoggedIn={isLoggedIn}
         setIsLoggedIn={setIsLoggedIn}
-        element={<div>Home</div>}
+        element={<Login />}
       ></Route>
 
-      <Route path="/posts" element={<div>Posts</div>}>
+      <Route
+        path="/posts"
+        isLoggedIn={isLoggedIn}
+        setIsLoggedIn={setIsLoggedIn}
+        element={<div>Posts</div>}
+      >
         <Posts />
       </Route>
 
-      <Route path="/profile" element={<Profile />}>
+      <Route
+        path="/profile"
+        isLoggedIn={isLoggedIn}
+        setIsLoggedIn={setIsLoggedIn}
+        element={<Profile />}
+      >
         <Profile token={token} setToken={setToken} />
       </Route>
 
       <Route path="/login" element={<Login />}>
-        <Login
-          isLoggedIn={isLoggedIn}
-          setIsLoggedIn={setIsLoggedIn}
-          appState={appState}
-          setAppState={setAppState}
-        />
+        <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         {isLoggedIn ? <div>you are logged in</div> : null}
       </Route>
 
       <Route path="/register">
-        {/* {isLoggedIn ? (
-          <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-        ) : (
-          <Register isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-        )} */}
         <Register />
       </Route>
 

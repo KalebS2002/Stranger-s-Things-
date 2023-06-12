@@ -23,9 +23,6 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
   //   token: "",
   // });
 
-  const [token, setToken] = useState("");
-  let TOKEN_STRING_HERE = "";
-
   const LoginFunc = async () => {
     try {
       const response = await fetch(`${BASE_URL}/users/login`, {
@@ -42,27 +39,32 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
       });
       const result = await response.json();
       console.log(result);
-      setToken(result.data.token);
-      console.log("user token:" + token);
-      await myData();
+      // setToken(result.data.token);
+      localStorage.token = result.data.token;
+
+      console.log("user token:" + localStorage.token);
+
       await setIsLoggedIn(true);
+      await myData();
       return result;
     } catch (err) {
       console.error(err);
     }
+    // await myData();
   };
-
-  TOKEN_STRING_HERE = token;
 
   const myData = async () => {
     try {
       const response = await fetch(`${BASE_URL}/users/me`, {
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${TOKEN_STRING_HERE}`,
+          Authorization: `Bearer ${localStorage.token}`,
         },
       });
       const result = await response.json();
+      // let token = result.data.token
+
+      console.log("myData Result:", result);
       return result;
     } catch (err) {
       console.error(err);

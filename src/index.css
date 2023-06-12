@@ -135,6 +135,11 @@ color: rgb(115, 147, 157);
     width: 30%;
     padding: 6px;
     margin: 15px;
+    transition: 0.8s;
+}
+#postsSearch:focus{
+    background-color: white;
+    border-radius: 15px;
 }
 #postsSearch:focus{
     outline: none;
@@ -145,8 +150,20 @@ color: rgb(115, 147, 157);
     color: rgb(43, 43, 136);
     transition: 0.4s;
 }
+#postsSendMessageButton{
+    border: 1px solid rgb(164, 164, 164);
+    border-radius: 15px;
+    width: 13%;
+    background-color: lightblue;
+    transition: 0.4s;
+}
 #postButton:hover{
 color: rgb(91, 91, 255);
+}
+#postsSendMessageButton:hover{
+    background-color: white;
+    color: darkblue;
+    box-shadow: 1px 1px 10px black;
 }
 #addNewPostSection{
     padding: 25px;

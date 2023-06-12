@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import NavBar from "./NavBar";
 import AddNewPost from "./AddNewPost";
-const TOKEN_STRING_HERE =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDgwYjE0YTUxMjQxMzAwMTQ0MTExZjEiLCJ1c2VybmFtZSI6ImthbGViUzIwMDIiLCJpYXQiOjE2ODYxNTU1OTR9.zDKJC2eufW-FIDCCHRlP7iJtF0Mu79Btoo2DyfFL3bk";
+// const TOKEN_STRING_HERE =
+//   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDgwYjE0YTUxMjQxMzAwMTQ0MTExZjEiLCJ1c2VybmFtZSI6ImthbGViUzIwMDIiLCJpYXQiOjE2ODYxNTU1OTR9.zDKJC2eufW-FIDCCHRlP7iJtF0Mu79Btoo2DyfFL3bk";
 const COHORT_NAME = "2303-FTB-ET-WEB-AM";
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
 // let help = fetchData();
@@ -15,9 +15,11 @@ const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
 
 const Posts = ({ token, setToken }) => {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const TOKEN_STRING_HERE = token;
+
   console.log("Post in working!");
   const [posts, setPosts] = useState([]);
+  const [appState, setAppState] = useState();
+  const [isAllPostsVisible, setAllPostsVisible] = useState(true);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -41,7 +43,7 @@ const Posts = ({ token, setToken }) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${TOKEN_STRING_HERE}`,
+          Authorization: `Bearer ${localStorage.token}`,
         },
         body: JSON.stringify({
           post: {
@@ -72,7 +74,7 @@ const Posts = ({ token, setToken }) => {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${TOKEN_STRING_HERE}`,
+            Authorization: `Bearer ${localStorage.token}`,
           },
           body: JSON.stringify({
             post: {
@@ -101,7 +103,7 @@ const Posts = ({ token, setToken }) => {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${TOKEN_STRING_HERE}`,
+            Authorization: `Bearer ${localStorage.token}`,
           },
         }
       );
@@ -120,7 +122,7 @@ const Posts = ({ token, setToken }) => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${TOKEN_STRING_HERE}`,
+            Authorization: `Bearer ${localStorage.token}`,
           },
           body: JSON.stringify({
             message: {
@@ -137,29 +139,34 @@ const Posts = ({ token, setToken }) => {
     }
   };
 
-  const renderAddNewPost = () => {};
-
-  return (
+  const swapPostDisplay = () => {
+    setAllPostsVisible(false);
+  };
+  // turn line 147-166 into its own comp
+  return isAllPostsVisible ? (
     <div id="postContainer">
       <div id="postHeading">
         <h1 id="postsTitle">Posts</h1>
         <input id="postsSearch" type="text" placeholder="search posts"></input>
-        <button id="postButton" onClick={renderAddNewPost}>
+        <button id="postButton" onClick={swapPostDisplay}>
           Add Post
         </button>
       </div>
+
       {posts.map((post) => (
         <div className="msgBlock" key={post._id}>
           <div className="postMsg">Title: {post.title}</div>
           <div className="msgUsername">UserName: {post.author.username}</div>
           <div className="postMsg">Location: {post.location}</div>
           <div className="postMsg">Price: {post.price}</div>
-          <div className="postMsg">Messages: {post.author.messages}</div>
+          {/* <div className="postMsg">Messages: {post.author.messages}</div> */}
+          <button id="postsSendMessageButton">Send Message</button>
           {/* <div id="itemDes">Description: {post.description}</div> */}
         </div>
       ))}
     </div>
-    // <AddNewPost />
+  ) : (
+    <AddNewPost />
   );
 };
 
