@@ -19,13 +19,16 @@ const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
 //build out state here; use ternery operators;
 //use useEffect() for conditional rendering
 //{ if (isLoggedIn === true) ? <Posts/> : null}
-const App = () => {
+const App = ({ token, setToken }) => {
   //will need to pass isLoggedIn to multipple comps
   //set validation of login inputs
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userAccount, setUserAccount] = useState([]);
+  const [appState, setAppState] = useState();
+  // const [token, setToken] = useState("");
   console.log(isLoggedIn);
+
   return (
     <BrowserRouter>
       <div id="topOfPage">
@@ -64,12 +67,17 @@ const App = () => {
       </Route>
 
       <Route path="/profile" element={<Profile />}>
-        <Profile />
+        <Profile token={token} setToken={setToken} />
       </Route>
 
       <Route path="/login" element={<Login />}>
-        <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-        {{ isLoggedIn } ? <div>you are logged in</div> : <Login />}
+        <Login
+          isLoggedIn={isLoggedIn}
+          setIsLoggedIn={setIsLoggedIn}
+          appState={appState}
+          setAppState={setAppState}
+        />
+        {isLoggedIn ? <div>you are logged in</div> : null}
       </Route>
 
       <Route path="/register">

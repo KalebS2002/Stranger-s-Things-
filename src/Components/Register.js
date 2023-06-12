@@ -31,67 +31,72 @@ const Register = () => {
       // You can log ▲▲▲ the result
       // here ▼▼▼ to view the json object before returning it
       console.log(result);
+      const newToken = result.data.token;
       return result;
     } catch (err) {
       console.error(err);
     }
   };
 
-  const handleSubmit = (event) => {
-    // event.preventDeafault();
-    console.log(username);
-    console.log(password);
-    setUsername(username);
-    setPassword(password);
-  };
+  // const handleSubmit = (event) => {
+  //   // event.preventDeafault();
+  //   console.log(username);
+  //   console.log(password);
+  //   setUsername(username);
+  //   setPassword(password);
+  // };
 
   const handleChange = (event) => setUsername(event.target.value);
 
   return (
     <>
       <h2 id="logInHeader">Sign Up</h2>
-      <form onSubmit={handleSubmit}>
-        <div id="logInSection">
-          <div id="inputSection">
-            <input
-              type="text"
-              placeholder="enter username"
-              className="input"
-              value={username}
-              onChange={handleSubmit}
-            ></input>
 
-            <input
-              type="text"
-              placeholder="enter password"
-              className="input"
-              value={password}
-              onChange={handleSubmit}
-              min={6}
-            ></input>
+      <div id="logInSection">
+        <div id="inputSection">
+          <input
+            type="text"
+            placeholder="enter username"
+            className="input"
+            value={username}
+            onChange={(e) => {
+              setUsername(e.target.value);
+              e.preventDefault();
+            }}
+          ></input>
 
-            <input
-              type="text"
-              placeholder="re-enter password"
-              className="input"
-              min={6}
-            ></input>
+          <input
+            type="text"
+            placeholder="enter password"
+            className="input"
+            min={6}
+            onChange={(e) => {
+              setPassword(e.target.value);
+              e.preventDefault();
+            }}
+          ></input>
 
-            <button
-              className="logInButtons"
-              id="submitLogIn"
-              type="submit"
-              onSubmit={registerUser}
-            >
-              Submit
-            </button>
+          <input
+            type="text"
+            placeholder="re-enter password"
+            className="input"
+            min={6}
+          ></input>
 
-            <button className="logInButtons" id="submitLogIn" type="submit">
-              Log In
-            </button>
-          </div>
+          <button
+            className="logInButtons"
+            id="submitLogIn"
+            type="submit"
+            onClick={registerUser}
+          >
+            Submit
+          </button>
+
+          <button className="logInButtons" id="submitLogIn" type="submit">
+            Log In
+          </button>
         </div>
-      </form>
+      </div>
     </>
   );
 };

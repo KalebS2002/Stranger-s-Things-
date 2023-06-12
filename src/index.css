@@ -113,9 +113,74 @@ text-rendering: geometricPrecision;
 justify-content: flex-end;
 color: rgb(115, 147, 157);
 }
+#postHeading{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 #postContainer{
     display: flex;
     flex-direction: column;
     font-family: 'Poppins', sans-serif;
     padding: 20px;
+}
+#postsTitle{
+    font-size: 30px;
+    padding: 12px;
+}
+#postsSearch{
+    background-color: aliceblue;
+    border: none;
+    border-bottom: 2px solid lightblue;
+    width: 30%;
+    padding: 6px;
+    margin: 15px;
+}
+#postsSearch:focus{
+    outline: none;
+}
+#postButton{
+    background-color: aliceblue;
+    border: none;
+    color: rgb(43, 43, 136);
+    transition: 0.4s;
+}
+#postButton:hover{
+color: rgb(91, 91, 255);
+}
+#addNewPostSection{
+    padding: 25px;
+    margin: 12px;
+    display: grid;
+    justify-content: center;
+    flex-direction: column;
+}
+#addNewPostInputSection{
+    padding: 10px;
+    margin: 12px;
+   display: flex;
+   flex-direction: column;
+   width: 8=70%;
+}
+.addNewPostInput{
+ background-color: aliceblue;
+ margin: 12px;
+ border: none;
+ border-bottom: 1px solid black;
+}
+.addNewPostInput:focus{
+    outline: none;
+}
+#addNewPostCreateButton{
+    color: white;
+    padding: 6px;
+    margin: 12px;
+    border-radius: 6px;
+    background-color: lightblue;
+    border: 2px solid lightgray;
+    transition: 0.6s;
+}
+#addNewPostCreateButton:hover{
+    background-color: white;
+    color: lightblue;
 }

@@ -7,19 +7,24 @@ import Profile from "./Profile";
 // import LoginFunc from "./LoginFunc";
 const COHORT_NAME = "2303-FTB-ET-WEB-AM";
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
-const TOKEN_STRING_HERE =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDgwYjE0YTUxMjQxMzAwMTQ0MTExZjEiLCJ1c2VybmFtZSI6ImthbGViUzIwMDIiLCJpYXQiOjE2ODYxNTU1OTR9.zDKJC2eufW-FIDCCHRlP7iJtF0Mu79Btoo2DyfFL3bk";
+// const TOKEN_STRING_HERE =
+//   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDgwYjE0YTUxMjQxMzAwMTQ0MTExZjEiLCJ1c2VybmFtZSI6ImthbGViUzIwMDIiLCJpYXQiOjE2ODYxNTU1OTR9.zDKJC2eufW-FIDCCHRlP7iJtF0Mu79Btoo2DyfFL3bk";
+
+// const TOKEN_STRING_HERE = token;
 
 const Login = ({ isLoggedIn, setIsLoggedIn }) => {
-  console.log("Login is working!");
+  // console.log("Login is working!");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  console.log(isLoggedIn);
-  const [userAccount, setUserAccount] = useState({
-    username: "",
-    password: "",
-    _id: "",
-  });
+  console.log("isLoggedin=", isLoggedIn);
+  // const [userAccount, setUserAccount] = useState({
+  //   username: "",
+  //   _id: "",
+  //   token: "",
+  // });
+
+  const [token, setToken] = useState("");
+  let TOKEN_STRING_HERE = "";
 
   const LoginFunc = async () => {
     try {
@@ -36,15 +41,18 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
         }),
       });
       const result = await response.json();
-      await setIsLoggedIn(true);
-      console.log("isLogged in = " + isLoggedIn);
+      console.log(result);
+      setToken(result.data.token);
+      console.log("user token:" + token);
       await myData();
+      await setIsLoggedIn(true);
       return result;
     } catch (err) {
       console.error(err);
     }
   };
-  // LoginFunc();
+
+  TOKEN_STRING_HERE = token;
 
   const myData = async () => {
     try {
@@ -55,9 +63,6 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
         },
       });
       const result = await response.json();
-      await setUserAccount(result.data);
-      console.log("user data successfully retrieved! Look below!");
-      console.log(userAccount);
       return result;
     } catch (err) {
       console.error(err);
