@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import NavBar from "./NavBar";
 import AddNewPost from "./AddNewPost";
+import ViewPosts from "./ViewPost";
 // const TOKEN_STRING_HERE =
 //   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDgwYjE0YTUxMjQxMzAwMTQ0MTExZjEiLCJ1c2VybmFtZSI6ImthbGViUzIwMDIiLCJpYXQiOjE2ODYxNTU1OTR9.zDKJC2eufW-FIDCCHRlP7iJtF0Mu79Btoo2DyfFL3bk";
 const COHORT_NAME = "2303-FTB-ET-WEB-AM";
@@ -13,10 +14,10 @@ const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
 // let postMsgs = Object.values(fetchData());
 // console.log(postMsgs);
 
-const Posts = ({ token, setToken }) => {
+const Posts = () => {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  console.log("Post in working!");
+  // console.log("Post in working!");
   const [posts, setPosts] = useState([]);
   const [appState, setAppState] = useState();
   const [isAllPostsVisible, setAllPostsVisible] = useState(true);
@@ -28,7 +29,7 @@ const Posts = ({ token, setToken }) => {
         const result = await response.json();
         const postData = result.data.posts;
         console.log(result);
-
+        // console.log(postData);
         setPosts(postData);
       } catch (err) {
         console.error(err);
@@ -95,7 +96,7 @@ const Posts = ({ token, setToken }) => {
       console.error(err);
     }
   };
-  const deletePost = async () => {
+  const deletePost = async (_postId) => {
     try {
       const response = await fetch(
         `${BASE_URL}/posts/5e8d1bd48829fb0017d2233b`,
@@ -160,7 +161,17 @@ const Posts = ({ token, setToken }) => {
           <div className="postMsg">Location: {post.location}</div>
           <div className="postMsg">Price: {post.price}</div>
           {/* <div className="postMsg">Messages: {post.author.messages}</div> */}
-          <button id="postsSendMessageButton">Send Message</button>
+          <Link to="/viewpost">
+            <button
+              id="postsViewButton"
+              onClick={() => {
+                localStorage.postid = post._id;
+                // console.log(localStorage.postid);
+              }}
+            >
+              View
+            </button>
+          </Link>
           {/* <div id="itemDes">Description: {post.description}</div> */}
         </div>
       ))}

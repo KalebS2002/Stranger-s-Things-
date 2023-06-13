@@ -5,10 +5,10 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import FetchMessages from "./Messages";
 const USER_NAME = "Kaleb";
 
-const Profile = ({ token, setToken }) => {
+const Profile = ({ isLoggedIn, setIsLoggedIn }) => {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
   console.log("Profile is working!");
-  // return <FetchMessages />;
+
   return (
     <div id="profileContainer">
       <div>

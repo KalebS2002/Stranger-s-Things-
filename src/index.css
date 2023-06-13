@@ -150,7 +150,7 @@ color: rgb(115, 147, 157);
     color: rgb(43, 43, 136);
     transition: 0.4s;
 }
-#postsSendMessageButton{
+#postsViewButton{
     border: 1px solid rgb(164, 164, 164);
     border-radius: 15px;
     width: 13%;
@@ -160,7 +160,7 @@ color: rgb(115, 147, 157);
 #postButton:hover{
 color: rgb(91, 91, 255);
 }
-#postsSendMessageButton:hover{
+#postsViewButton:hover{
     background-color: white;
     color: darkblue;
     box-shadow: 1px 1px 10px black;
@@ -200,4 +200,23 @@ color: rgb(91, 91, 255);
 #addNewPostCreateButton:hover{
     background-color: white;
     color: lightblue;
+}
+#postView{
+    box-shadow: 1px 1px 5px black;
+    display: grid;
+    margin: 12px;
+    padding: 30px;
+}
+.postViewSection{
+    padding: 6px;
+}
+#logoutButton{
+    background-color: lightblue;
+    border: none;
+    color: white;
+    font-size: 15px;
+    transition: 0.6s;
+}
+#logoutButton:hover{
+    color: rgb(80, 100, 110);
 }

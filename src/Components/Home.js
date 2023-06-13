@@ -8,7 +8,8 @@ import NavBar from "./NavBar";
 import Login from "./Login";
 
 const Home = () => {
-  return <Login />;
+  // return <Login />;
+  console.log(localStorage.token);
 };
 
 export default Home;

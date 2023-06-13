@@ -7,6 +7,8 @@ import Profile from "./Components/Profile";
 import Register from "./Components/Register";
 import NavBar from "./Components/NavBar";
 import AddNewPost from "./Components/AddNewPost";
+import PostMessagePage from "./Components/PostMessage";
+import ViewPosts from "./Components/ViewPost";
 import {
   BrowserRouter,
   Route,
@@ -20,14 +22,19 @@ const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
 //build out state here; use ternery operators;
 //use useEffect() for conditional rendering
 //{ if (isLoggedIn === true) ? <Posts/> : null}
-const App = ({ token, setToken }) => {
+const App = () => {
   //will need to pass isLoggedIn to multipple comps
   //set validation of login inputs
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userAccount, setUserAccount] = useState([]);
+  // const [userAccount, setUserAccount] = useState([]);
   // const [token, setToken] = useState("");
-  console.log(isLoggedIn);
+  const [posts, setPosts] = useState([]);
+  const logout = () => {
+    localStorage.clear();
+    window.location.href = "/login";
+    alert("You have logged out.");
+  };
 
   return (
     <BrowserRouter>
@@ -36,31 +43,38 @@ const App = ({ token, setToken }) => {
           <aside>
             <h1 id="title">Stranger Things</h1>
           </aside>
-          <Link to="/" className="options">
-            Home
+          <Link to="/home" className="options">
+            {isLoggedIn ? "Home" : null}
           </Link>
           <Link to="/posts" className="options">
-            Posts
-            {/* ({posts.length}) */}
+            {isLoggedIn ? "Posts" : null}
           </Link>
           <Link to="/profile" className="options">
-            Profile
+            {isLoggedIn ? "Profile" : null}
           </Link>
           <Link to="/login" className="options">
-            Login
+            {isLoggedIn ? null : "Login"}
           </Link>
           <Link to="/register" className="options">
-            Register
+            {isLoggedIn ? (
+              <button id="logoutButton" onClick={logout}>
+                Log Out
+              </button>
+            ) : (
+              "Register"
+            )}
           </Link>
         </nav>
       </div>
 
-      <Route
-        path="/"
-        isLoggedIn={isLoggedIn}
-        setIsLoggedIn={setIsLoggedIn}
-        element={<Login />}
-      ></Route>
+      <Route path="/viewpost" element={<Login />}>
+        <ViewPosts
+          isLoggedIn={isLoggedIn}
+          setIsLoggedIn={setIsLoggedIn}
+          posts={posts}
+          setPosts={setPosts}
+        />
+      </Route>
 
       <Route
         path="/posts"
@@ -77,21 +91,24 @@ const App = ({ token, setToken }) => {
         setIsLoggedIn={setIsLoggedIn}
         element={<Profile />}
       >
-        <Profile token={token} setToken={setToken} />
+        <Profile />
       </Route>
+
+      <Route
+        path="/addnewposts"
+        isLoggedIn={isLoggedIn}
+        setIsLoggedIn={setIsLoggedIn}
+        element={<AddNewPost />}
+      ></Route>
 
       <Route path="/login" element={<Login />}>
         <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-        {isLoggedIn ? <div>you are logged in</div> : null}
+        {isLoggedIn ? <p>you are logged in</p> : null}
       </Route>
 
       <Route path="/register">
         <Register />
       </Route>
-
-      {/* {isLoggedIn ? <Posts /> : <NavBar />} */}
-
-      {/* need to re-route to posts page if isLoggedIn === true */}
     </BrowserRouter>
   );
 };

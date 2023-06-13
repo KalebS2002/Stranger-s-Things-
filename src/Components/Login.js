@@ -22,6 +22,16 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
   //   _id: "",
   //   token: "",
   // });
+  const redirect = () => {
+    window.location.href = "/posts";
+  };
+
+  const redirectToPosts = () => {
+    console.log(isLoggedIn);
+    if (isLoggedIn === true) {
+      redirect();
+    }
+  };
 
   const LoginFunc = async () => {
     try {
@@ -41,16 +51,16 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
       console.log(result);
       // setToken(result.data.token);
       localStorage.token = result.data.token;
-
       console.log("user token:" + localStorage.token);
-
       await setIsLoggedIn(true);
       await myData();
+      // if ({ isLoggedIn } === true) {
+      //   redirect();
+      // }
       return result;
     } catch (err) {
       console.error(err);
     }
-    // await myData();
   };
 
   const myData = async () => {
@@ -111,6 +121,7 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
               onClick={(e) => {
                 e.preventDefault();
                 LoginFunc();
+                redirectToPosts();
               }}
             >
               Submit
