@@ -1,4 +1,5 @@
 import React, { useState, useTransition } from "react";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { Redirect } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import Posts from "./Posts";
@@ -42,7 +43,7 @@ const AddNewPost = ({ isLoggedIn, setIsLoggedIn }) => {
   const redirect = (e) => {
     // setIsLoggedIn(true);
     e.preventDefault();
-    window.location.href = "/posts";
+    // window.location.href = "/posts";
   };
   return (
     <div id="addNewPostSection">
@@ -93,9 +94,9 @@ const AddNewPost = ({ isLoggedIn, setIsLoggedIn }) => {
         <button id="addNewPostCreateButton" onClick={makePost}>
           Create
         </button>
-        <button id="addNewPostCreateButton" onClick={redirect}>
-          Back to Posts
-        </button>
+        <Link to="/profile">
+          <button id="addNewPostCreateButton">Back to Posts</button>
+        </Link>
       </div>
     </div>
   );

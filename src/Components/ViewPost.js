@@ -1,56 +1,50 @@
 import React, { useEffect } from "react";
-import { useState } from "react";
+import { useState, useParams } from "react";
+import { ReactDOM } from "react";
+import { BrowserRouter as Router } from "react-router-dom/cjs/react-router-dom.min";
 const COHORT_NAME = "2303-FTB-ET-WEB-AM";
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
 const postId = localStorage.postid;
 
-const ViewPosts = ({ posts, setPosts }) => {
-  const retrievePostData = () => {
-    console.log("this is coming from retrieve:", posts);
-
-    //narrow down data that comes from posts to get data matching localStorage.postid.
-    //maybe use .filter method...
+const ViewPost = ({ post, setPost, currentPost, setCurrentPost }) => {
+  //do I use another try/catch here to get post data or do i get it passed as a prop??
+  console.log(currentPost);
+  // setCurrentPost({
+  //   title: "",
+  //   username: "",
+  //   description: "",
+  //   price: "",
+  //   location: "",
+  //   willdeliver: "",
+  // });
+  let returnedPost = {
+    title: "",
+    username: "",
+    description: "",
+    price: "",
+    location: "",
+    willdeliver: "",
   };
-  retrievePostData();
-  //   const fetchPosts = async () => {
-  //     try {
-  //       const response = await fetch(`${BASE_URL}/posts`);
-  //       const result = await response.json();
-  //       const postData = result.data.posts;
-  //       setPosts(postData);
-  //       return result;
-  //     } catch (err) {
-  //       console.error(err);
-  //     }
-  //     fetchPosts();
-  //   };
+  // console.log(returnedPost);
+  //   title: "",
+  //   username: "",
+  //   description: "",
+  //   price: "",
+  //   location: "",
+  //   willdeliver: "",
 
-  //   useEffect(() => {
-  //     const fetchPosts = async () => {
-  //       try {
-  //         const response = await fetch(`${BASE_URL}/posts`);
-  //         const result = await response.json();
-  //         const postData = result.data.posts;
-  //         setPosts(postData);
-  //       } catch (err) {
-  //         console.error(err);
-  //       }
-  //     };
-  //     fetchPosts();
-  //   }, []);
+  console.log("Current Post:", currentPost);
 
-  //   console.log(localStorage.postid);
-  //   console.log(posts);
   return (
     <div id="postView">
       <div className="postViewSection">
-        <h2>Title:</h2>
+        <h2>Title: </h2>
       </div>
       <div className="postViewSection">
-        <h3>Username:</h3>
+        <h3>Username: </h3>
       </div>
       <div className="postViewSection">
-        <p>Description:</p>
+        <p>Description: </p>
       </div>
       <div className="postViewSection">
         <h3>Price:</h3>
@@ -58,8 +52,12 @@ const ViewPosts = ({ posts, setPosts }) => {
       <div className="postViewSection">
         <h4>Location: </h4>
       </div>
+      <div className="postViewSection">
+        <h4>Will Deliver: </h4>
+      </div>
       {/* put messages in here somewhere below heading */}
     </div>
   );
 };
-export default ViewPosts;
+
+export default ViewPost;

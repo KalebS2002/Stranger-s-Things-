@@ -83,7 +83,7 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
 
   // myData();
   // console.log(LoginFunc().username);
-  return (
+  return !isLoggedIn ? (
     <>
       <h2 id="logInHeader">Log In</h2>
       <form id="loginForm">
@@ -133,6 +133,8 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
         </div>
       </form>
     </>
+  ) : (
+    <Posts />
   );
 };
 

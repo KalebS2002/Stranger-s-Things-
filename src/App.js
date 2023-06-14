@@ -8,7 +8,7 @@ import Register from "./Components/Register";
 import NavBar from "./Components/NavBar";
 import AddNewPost from "./Components/AddNewPost";
 import PostMessagePage from "./Components/PostMessage";
-import ViewPosts from "./Components/ViewPost";
+import ViewPost from "./Components/ViewPost";
 import {
   BrowserRouter,
   Route,
@@ -30,6 +30,8 @@ const App = () => {
   // const [userAccount, setUserAccount] = useState([]);
   // const [token, setToken] = useState("");
   const [posts, setPosts] = useState([]);
+  const [currentPost, setCurrentPost] = useState({});
+
   const logout = () => {
     localStorage.clear();
     window.location.href = "/login";
@@ -68,11 +70,13 @@ const App = () => {
       </div>
 
       <Route path="/viewpost" element={<Login />}>
-        <ViewPosts
+        <ViewPost
           isLoggedIn={isLoggedIn}
           setIsLoggedIn={setIsLoggedIn}
           posts={posts}
           setPosts={setPosts}
+          currentPost={currentPost}
+          setCurrentPost={setCurrentPost}
         />
       </Route>
 
@@ -80,7 +84,8 @@ const App = () => {
         path="/posts"
         isLoggedIn={isLoggedIn}
         setIsLoggedIn={setIsLoggedIn}
-        element={<div>Posts</div>}
+        currentPost={currentPost}
+        setCurrentPost={setCurrentPost}
       >
         <Posts />
       </Route>
