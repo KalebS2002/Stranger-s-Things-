@@ -72,7 +72,7 @@ const Register = () => {
           <label>
             Enter Password
             <input
-              type="text"
+              type="password"
               placeholder="enter password"
               className="input"
               min={6}

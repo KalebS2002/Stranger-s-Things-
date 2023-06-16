@@ -220,3 +220,68 @@ color: rgb(91, 91, 255);
 #logoutButton:hover{
     color: rgb(80, 100, 110);
 }
+#viewPostReturnButton{
+    border: none;
+    background-color: aliceblue;
+    color: rgb(24, 24, 78);
+    transition: 0.4s;
+    font-size: 15px;
+}
+#viewPostReturnButton:hover{
+color: lightblue;
+}
+#viewPostTitle{
+    color: rgb(44, 44, 135);
+}
+#viewPostMessagesSection{
+    text-align: center;
+}
+#viewPostDeleteButton{
+    margin: 6px;
+    font-size: 20px;
+    background-color: aliceblue;
+    border: 2px solid rgb(207, 0, 0);
+    border-radius: 11px;
+    width: 13%;
+    color: rgb(137, 0, 0);
+    transition: 0.4s;
+}
+#viewPostDeleteButton:hover{
+    background-color:rgb(207, 0, 0) ;
+    color: white;
+    border: black;
+}
+#viewPostEditButton{
+     margin: 6px;
+    font-size: 20px;
+    background-color: aliceblue;
+    border: 2px solid rgb(0, 0, 210);
+    border-radius: 11px;
+    width: 13%;
+    color: rgb(0, 0, 141);
+transition: 0.4s;
+}
+#viewPostEditButton:hover{
+    background-color:rgb(0, 0, 210) ;
+    color: white;
+    border: black;
+}
+#viewPostButtonSection{
+    display: grid;
+    
+}
+#viewPostMessageButton{
+    margin: 6px;
+    font-size: 20px;
+    background-color: aliceblue;
+    border: 2px solid rgb(0, 210, 25);
+    border-radius: 11px;
+    width: 18%;
+    color: rgb(35, 141, 0);
+transition: 0.4s;
+}
+#viewPostMessageButton:hover{
+    background-color:rgb(21, 210, 0) ;
+    color: white;
+    border: black;
+}

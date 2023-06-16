@@ -12,7 +12,7 @@ const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
 
 // const TOKEN_STRING_HERE = token;
 
-const Login = ({ isLoggedIn, setIsLoggedIn }) => {
+const Login = ({ isLoggedIn, setIsLoggedIn, currentPost, setCurrentPost }) => {
   // console.log("Login is working!");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -59,6 +59,7 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
       // }
       return result;
     } catch (err) {
+      alert("invalid Credintials");
       console.error(err);
     }
   };
@@ -134,7 +135,7 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
       </form>
     </>
   ) : (
-    <Posts />
+    <Posts currentPost={currentPost} setCurrentPost={setCurrentPost} />
   );
 };
 

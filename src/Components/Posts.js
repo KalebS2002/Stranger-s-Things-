@@ -14,13 +14,13 @@ const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
 // let postMsgs = Object.values(fetchData());
 // console.log(postMsgs);
 
-const Posts = () => {
+const Posts = ({ currentPost, setCurrentPost }) => {
+  console.log(currentPost);
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // console.log("Post in working!");
   const [posts, setPosts] = useState([]);
-  const [currentPost, setCurrentPost] = useState({});
-  console.log("<Posts/>", posts);
+
   const [appState, setAppState] = useState();
   const [isAllPostsVisible, setAllPostsVisible] = useState(true);
 
@@ -146,6 +146,7 @@ const Posts = () => {
     setAllPostsVisible(false);
   };
   // turn line 147-166 into its own comp
+
   return isAllPostsVisible ? (
     <div id="postContainer">
       <div id="postHeading">
@@ -155,7 +156,6 @@ const Posts = () => {
           Add Post
         </button>
       </div>
-
       {posts.map((post) => (
         <div className="msgBlock" key={post._id}>
           <div className="postMsg">Title: {post.title}</div>
@@ -167,20 +167,16 @@ const Posts = () => {
             <button
               id="postsViewButton"
               onClick={() => {
-                localStorage.clear();
-                localStorage.postid = post._id;
-                // console.log("<Posts/>", localStorage.postid);
-                // setCurrentPost(OBJECT HERE);
-                // console.log(localStorage.postid);
+                // localStorage.clear();
+                // localStorage.postid = post._id;
+                setCurrentPost(post);
+                // console.log(post);
               }}
             >
               View
             </button>
           </Link>
 
-          <Route path="/viewpost">
-            <ViewPost />
-          </Route>
           {/* <div id="itemDes">Description: {post.description}</div> */}
         </div>
       ))}

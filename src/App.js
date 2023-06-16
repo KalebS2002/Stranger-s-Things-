@@ -9,11 +9,13 @@ import NavBar from "./Components/NavBar";
 import AddNewPost from "./Components/AddNewPost";
 import PostMessagePage from "./Components/PostMessage";
 import ViewPost from "./Components/ViewPost";
+
 import {
   BrowserRouter,
   Route,
   Link,
 } from "react-router-dom/cjs/react-router-dom.min";
+import EditPost from "./Components/EditPost";
 const COHORT_NAME = "2303-FTB-ET-WEB-AM";
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
 // So, for example, to call for all posts the url would just need to be:
@@ -69,7 +71,7 @@ const App = () => {
         </nav>
       </div>
 
-      <Route path="/viewpost" element={<Login />}>
+      <Route path="/viewpost">
         <ViewPost
           isLoggedIn={isLoggedIn}
           setIsLoggedIn={setIsLoggedIn}
@@ -80,34 +82,43 @@ const App = () => {
         />
       </Route>
 
-      <Route
-        path="/posts"
-        isLoggedIn={isLoggedIn}
-        setIsLoggedIn={setIsLoggedIn}
-        currentPost={currentPost}
-        setCurrentPost={setCurrentPost}
-      >
-        <Posts />
+      <Route path="/editpost">
+        <EditPost
+          isLoggedIn={isLoggedIn}
+          setIsLoggedIn={setIsLoggedIn}
+          // posts={posts}
+          // setPosts={setPosts}
+          currentPost={currentPost}
+          setCurrentPost={setCurrentPost}
+        />
       </Route>
 
-      <Route
-        path="/profile"
-        isLoggedIn={isLoggedIn}
-        setIsLoggedIn={setIsLoggedIn}
-        element={<Profile />}
-      >
-        <Profile />
+      <Route path="/posts">
+        <Posts
+          isLoggedIn={isLoggedIn}
+          setIsLoggedIn={setIsLoggedIn}
+          currentPost={currentPost}
+          setCurrentPost={setCurrentPost}
+        />
+      </Route>
+
+      <Route path="/profile">
+        <Profile isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       </Route>
 
       <Route
         path="/addnewposts"
         isLoggedIn={isLoggedIn}
         setIsLoggedIn={setIsLoggedIn}
-        element={<AddNewPost />}
       ></Route>
 
-      <Route path="/login" element={<Login />}>
-        <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+      <Route path="/login">
+        <Login
+          isLoggedIn={isLoggedIn}
+          setIsLoggedIn={setIsLoggedIn}
+          currentPost={currentPost}
+          setCurrentPost={setCurrentPost}
+        />
         {isLoggedIn ? <p>you are logged in</p> : null}
       </Route>
 

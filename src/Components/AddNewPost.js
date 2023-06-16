@@ -1,10 +1,9 @@
 import React, { useState, useTransition } from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import Posts from "./Posts";
-import RedirectToPosts from "./RedirectToPosts";
-
+// import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 const AddNewPost = ({ isLoggedIn, setIsLoggedIn }) => {
   const COHORT_NAME = "2303-FTB-ET-WEB-AM";
   const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
@@ -32,19 +31,15 @@ const AddNewPost = ({ isLoggedIn, setIsLoggedIn }) => {
       });
       const result = await response.json();
       console.log(result);
-      redirect();
+      history.push("/posts");
       alert("Post successfully created!");
       return result;
     } catch (err) {
       console.error(err);
     }
   };
+  let history = useHistory();
 
-  const redirect = (e) => {
-    // setIsLoggedIn(true);
-    e.preventDefault();
-    // window.location.href = "/posts";
-  };
   return (
     <div id="addNewPostSection">
       <h1 id="addNewPostTitle">Add New Post</h1>
