@@ -1,52 +1,20 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import FetchMessages from "./Messages";
-const USER_NAME = "Kaleb";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
-const Profile = ({ isLoggedIn, setIsLoggedIn }) => {
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-  console.log("Profile is working!");
-
+const Profile = ({ username }) => {
+  let user = username;
   return (
     <div id="profileContainer">
-      <div>
-        <h1 id="profileTitle">Welcome {USER_NAME}</h1>
-        <h3 id="profileTitle">Messages to me:</h3>
-      </div>
+      <h2 className="profileTitle">Welcome {user}!</h2>
+      <h4 className="profileTitle">Messages to me:</h4>
 
       <div className="msgBlock">
-        <h2>From</h2>
-        <p>This is a message</p>
-        <p>This is a post</p>
-      </div>
-
-      <div className="msgBlock">
-        <h2>From</h2>
-        <p>This is a message</p>
-        <p>This is a post</p>
-      </div>
-
-      <div className="msgBlock">
-        <h2>From</h2>
-        <p>This is a message</p>
-        <p>This is a post</p>
-      </div>
-
-      <div className="msgBlock">
-        <h2>From</h2>
-        <p>This is a message</p>
-        <p>This is a post</p>
-      </div>
-
-      <div className="msgBlock">
-        <h2>From</h2>
-        <p>This is a message</p>
-        <p>This is a post</p>
+        <div className="postMsg">From: </div>
+        <div className="msgUsername">Message:</div>
+        <div className="postMsg">Post: </div>
       </div>
     </div>
   );
 };
-
 export default Profile;

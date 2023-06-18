@@ -15,7 +15,7 @@ const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
 // console.log(postMsgs);
 
 const Posts = ({ currentPost, setCurrentPost }) => {
-  console.log(currentPost);
+  // console.log(currentPost);
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // console.log("Post in working!");

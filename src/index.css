@@ -1,12 +1,14 @@
-*{
+* {
     font-family: 'Poppins', sans-serif;
     padding: 0;
     margin: 0;
 }
-body{
+
+body {
     background-color: aliceblue;
 }
-#topOfPage{
+
+#topOfPage {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -18,58 +20,68 @@ body{
     border-radius: 10px;
     box-shadow: 1px 1px 10px rgb(102, 102, 102);
 }
-.options{
+
+.options {
     color: white;
     text-decoration: none;
     padding: 20px;
     margin: 10px;
     transition: 0.6s;
 }
-.options:hover{
+
+.options:hover {
     color: rgb(80, 100, 110);
 }
-#title{
+
+#title {
     font-family: 'La Belle Aurore', cursive;
     text-align: center;
     font-size: 30px;
 }
-#logInSection{
+
+#logInSection {
     display: flex;
     /* background-color: wheat; */
     justify-content: center;
     padding: 10px;
     margin: 40px;
 }
-#logInHeader{
+
+#logInHeader {
     text-align: center;
     padding: 30px;
 }
-#inputSection{
+
+#inputSection {
     display: flex;
     flex-direction: column;
     padding: 12px;
     margin: 12px;
     width: 30%;
 }
-#inputSection > label > .input{
+
+#inputSection>label>.input {
     width: 100%;
 }
-.input{
+
+.input {
     margin: 15px;
     border: none;
     text-shadow: 1px 1px lightblue;
     border-bottom: 2px solid rgb(217, 217, 217);
 }
-.input:focus{
+
+.input:focus {
     outline: none;
 }
-.input:focus::placeholder{
+
+.input:focus::placeholder {
     transition: 0.3s;
     color: transparent;
     text-shadow: none;
 }
 
-.logInButtons{
+.logInButtons {
     color: white;
     padding: 6px;
     margin: 12px;
@@ -78,21 +90,25 @@ body{
     border: 2px solid lightgray;
     transition: 0.6s;
 }
-.logInButtons:hover{
+
+.logInButtons:hover {
     background-color: white;
     color: lightblue;
 }
-#profileContainer{
+
+#profileContainer {
     display: flex;
     flex-direction: column;
     font-family: 'Poppins', sans-serif;
     padding: 20px;
 }
-#profileTitle{
+
+#profileTitle {
     font-family: 'Poppins', sans-serif;
     text-align: center;
 }
-.msgBlock{
+
+.msgBlock {
     padding: 20px;
     margin: 10px;
     display: flex;
@@ -101,34 +117,41 @@ body{
     border-radius: 6px;
     box-shadow: 1px 1px 3px black;
 }
-.postMsg{
+
+.postMsg {
     color: rgb(115, 147, 157);
 }
-.msgUsername{
+
+.msgUsername {
     color: rgb(0, 0, 157);
 }
-#itemDes{
-display: flex;
-text-rendering: geometricPrecision;
-justify-content: flex-end;
-color: rgb(115, 147, 157);
+
+#itemDes {
+    display: flex;
+    text-rendering: geometricPrecision;
+    justify-content: flex-end;
+    color: rgb(115, 147, 157);
 }
-#postHeading{
+
+#postHeading {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
-#postContainer{
+
+#postContainer {
     display: flex;
     flex-direction: column;
     font-family: 'Poppins', sans-serif;
     padding: 20px;
 }
-#postsTitle{
+
+#postsTitle {
     font-size: 30px;
     padding: 12px;
 }
-#postsSearch{
+
+#postsSearch {
     background-color: aliceblue;
     border: none;
     border-bottom: 2px solid lightblue;
@@ -137,58 +160,69 @@ color: rgb(115, 147, 157);
     margin: 15px;
     transition: 0.8s;
 }
-#postsSearch:focus{
+
+#postsSearch:focus {
     background-color: white;
     border-radius: 15px;
 }
-#postsSearch:focus{
+
+#postsSearch:focus {
     outline: none;
 }
-#postButton{
+
+#postButton {
     background-color: aliceblue;
     border: none;
     color: rgb(43, 43, 136);
     transition: 0.4s;
 }
-#postsViewButton{
+
+#postsViewButton {
     border: 1px solid rgb(164, 164, 164);
     border-radius: 15px;
     width: 13%;
     background-color: lightblue;
     transition: 0.4s;
 }
-#postButton:hover{
-color: rgb(91, 91, 255);
+
+#postButton:hover {
+    color: rgb(91, 91, 255);
 }
-#postsViewButton:hover{
+
+#postsViewButton:hover {
     background-color: white;
     color: darkblue;
     box-shadow: 1px 1px 10px black;
 }
-#addNewPostSection{
+
+#addNewPostSection {
     padding: 25px;
     margin: 12px;
     display: grid;
     justify-content: center;
     flex-direction: column;
 }
-#addNewPostInputSection{
+
+#addNewPostInputSection {
     padding: 10px;
     margin: 12px;
-   display: flex;
-   flex-direction: column;
-   width: 8=70%;
+    display: flex;
+    flex-direction: column;
+    width: 8=70%;
 }
-.addNewPostInput{
- background-color: aliceblue;
- margin: 12px;
- border: none;
- border-bottom: 1px solid black;
+
+.addNewPostInput {
+    background-color: aliceblue;
+    margin: 12px;
+    border: none;
+    border-bottom: 1px solid black;
 }
-.addNewPostInput:focus{
+
+.addNewPostInput:focus {
     outline: none;
 }
-#addNewPostCreateButton{
+
+#addNewPostCreateButton {
     color: white;
     padding: 6px;
     margin: 12px;
@@ -197,46 +231,56 @@ color: rgb(91, 91, 255);
     border: 2px solid lightgray;
     transition: 0.6s;
 }
-#addNewPostCreateButton:hover{
+
+#addNewPostCreateButton:hover {
     background-color: white;
     color: lightblue;
 }
-#postView{
+
+#postView {
     box-shadow: 1px 1px 5px black;
     display: grid;
     margin: 12px;
     padding: 30px;
 }
-.postViewSection{
+
+.postViewSection {
     padding: 6px;
 }
-#logoutButton{
+
+#logoutButton {
     background-color: lightblue;
     border: none;
     color: white;
     font-size: 15px;
     transition: 0.6s;
 }
-#logoutButton:hover{
+
+#logoutButton:hover {
     color: rgb(80, 100, 110);
 }
-#viewPostReturnButton{
+
+#viewPostReturnButton {
     border: none;
     background-color: aliceblue;
     color: rgb(24, 24, 78);
     transition: 0.4s;
     font-size: 15px;
 }
-#viewPostReturnButton:hover{
-color: lightblue;
+
+#viewPostReturnButton:hover {
+    color: lightblue;
 }
-#viewPostTitle{
+
+#viewPostTitle {
     color: rgb(44, 44, 135);
 }
-#viewPostMessagesSection{
+
+#viewPostMessagesSection {
     text-align: center;
 }
-#viewPostDeleteButton{
+
+#viewPostDeleteButton {
     margin: 6px;
     font-size: 20px;
     background-color: aliceblue;
@@ -246,31 +290,36 @@ color: lightblue;
     color: rgb(137, 0, 0);
     transition: 0.4s;
 }
-#viewPostDeleteButton:hover{
-    background-color:rgb(207, 0, 0) ;
+
+#viewPostDeleteButton:hover {
+    background-color: rgb(207, 0, 0);
     color: white;
     border: black;
 }
-#viewPostEditButton{
-     margin: 6px;
+
+#viewPostEditButton {
+    margin: 6px;
     font-size: 20px;
     background-color: aliceblue;
     border: 2px solid rgb(0, 0, 210);
     border-radius: 11px;
     width: 13%;
     color: rgb(0, 0, 141);
-transition: 0.4s;
+    transition: 0.4s;
 }
-#viewPostEditButton:hover{
-    background-color:rgb(0, 0, 210) ;
+
+#viewPostEditButton:hover {
+    background-color: rgb(0, 0, 210);
     color: white;
     border: black;
 }
-#viewPostButtonSection{
+
+#viewPostButtonSection {
     display: grid;
-    
+
 }
-#viewPostMessageButton{
+
+#viewPostMessageButton {
     margin: 6px;
     font-size: 20px;
     background-color: aliceblue;
@@ -278,10 +327,50 @@ transition: 0.4s;
     border-radius: 11px;
     width: 18%;
     color: rgb(35, 141, 0);
-transition: 0.4s;
+    transition: 0.4s;
 }
-#viewPostMessageButton:hover{
-    background-color:rgb(21, 210, 0) ;
+
+#viewPostMessageButton:hover {
+    background-color: rgb(21, 210, 0);
     color: white;
     border: black;
+}
+
+#editPostForm {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 70px;
+    
+}
+
+.editPostInput {
+    /* width: 37%; */
+    margin: 30px;
+    border: 2px solid darkblue;
+    border-radius: 10px;
+    height: 13%;
+}
+.editPostInput:focus{
+    outline: none;
+}
+#editPostDone{
+    font-size: 18px;
+    width: 10%;
+    background-color: aliceblue;
+    border: 2px solid green;
+    border-radius: 12px;
+    color: green;
+    transition: 0.4s;
+}
+#editPostDone:hover{
+    background-color: limegreen;
+    color: white;
+}
+.profileTitle{
+    text-align: center;
+}
+#profileContainer{
+    display: flex;
+    justify-content: center
 }

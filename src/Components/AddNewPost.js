@@ -90,7 +90,7 @@ const AddNewPost = ({ isLoggedIn, setIsLoggedIn }) => {
           Create
         </button>
         <Link to="/profile">
-          <button id="addNewPostCreateButton">Back to Posts</button>
+          <button id="addNewPostCreateButton">Return</button>
         </Link>
       </div>
     </div>

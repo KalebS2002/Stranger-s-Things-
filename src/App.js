@@ -7,7 +7,6 @@ import Profile from "./Components/Profile";
 import Register from "./Components/Register";
 import NavBar from "./Components/NavBar";
 import AddNewPost from "./Components/AddNewPost";
-import PostMessagePage from "./Components/PostMessage";
 import ViewPost from "./Components/ViewPost";
 
 import {
@@ -16,6 +15,7 @@ import {
   Link,
 } from "react-router-dom/cjs/react-router-dom.min";
 import EditPost from "./Components/EditPost";
+import SendMessage from "./Components/PostMessage";
 const COHORT_NAME = "2303-FTB-ET-WEB-AM";
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
 // So, for example, to call for all posts the url would just need to be:
@@ -29,8 +29,7 @@ const App = () => {
   //set validation of login inputs
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // const [userAccount, setUserAccount] = useState([]);
-  // const [token, setToken] = useState("");
+  const [username, setUsername] = useState("");
   const [posts, setPosts] = useState([]);
   const [currentPost, setCurrentPost] = useState({});
 
@@ -47,7 +46,7 @@ const App = () => {
           <aside>
             <h1 id="title">Stranger Things</h1>
           </aside>
-          <Link to="/home" className="options">
+          <Link to="/profile" className="options">
             {isLoggedIn ? "Home" : null}
           </Link>
           <Link to="/posts" className="options">
@@ -102,8 +101,24 @@ const App = () => {
         />
       </Route>
 
+      <Route path="/postmessage">
+        <SendMessage
+          isLoggedIn={isLoggedIn}
+          setIsLoggedIn={setIsLoggedIn}
+          currentPost={currentPost}
+          setCurrentPost={setCurrentPost}
+        />
+      </Route>
+
       <Route path="/profile">
-        <Profile isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+        <Profile
+          isLoggedIn={isLoggedIn}
+          setIsLoggedIn={setIsLoggedIn}
+          username={username}
+          setUsername={setUsername}
+          currentPost={currentPost}
+          setCurrentPost={setCurrentPost}
+        />
       </Route>
 
       <Route
@@ -118,6 +133,8 @@ const App = () => {
           setIsLoggedIn={setIsLoggedIn}
           currentPost={currentPost}
           setCurrentPost={setCurrentPost}
+          username={username}
+          setUsername={setUsername}
         />
         {isLoggedIn ? <p>you are logged in</p> : null}
       </Route>

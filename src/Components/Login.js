@@ -12,9 +12,16 @@ const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
 
 // const TOKEN_STRING_HERE = token;
 
-const Login = ({ isLoggedIn, setIsLoggedIn, currentPost, setCurrentPost }) => {
+const Login = ({
+  isLoggedIn,
+  setIsLoggedIn,
+  currentPost,
+  setCurrentPost,
+  username,
+  setUsername,
+}) => {
   // console.log("Login is working!");
-  const [username, setUsername] = useState("");
+  // const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   console.log("isLoggedin=", isLoggedIn);
   // const [userAccount, setUserAccount] = useState({
@@ -23,7 +30,7 @@ const Login = ({ isLoggedIn, setIsLoggedIn, currentPost, setCurrentPost }) => {
   //   token: "",
   // });
   const redirect = () => {
-    window.location.href = "/posts";
+    window.location.href = "/profile";
   };
 
   const redirectToPosts = () => {
@@ -49,9 +56,9 @@ const Login = ({ isLoggedIn, setIsLoggedIn, currentPost, setCurrentPost }) => {
       });
       const result = await response.json();
       console.log(result);
-      // setToken(result.data.token);
+      setUsername(username);
       localStorage.token = result.data.token;
-      console.log("user token:" + localStorage.token);
+
       await setIsLoggedIn(true);
       await myData();
       // if ({ isLoggedIn } === true) {
@@ -75,7 +82,7 @@ const Login = ({ isLoggedIn, setIsLoggedIn, currentPost, setCurrentPost }) => {
       const result = await response.json();
       // let token = result.data.token
 
-      console.log("myData Result:", result);
+      // console.log("myData Result:", result);
       return result;
     } catch (err) {
       console.error(err);

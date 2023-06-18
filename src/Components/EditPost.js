@@ -67,41 +67,66 @@ const EditPost = ({ currentPost, posts }) => {
   //   };
 
   return (
-    <form
-      onSubmit={(event) => {
-        event.preventDefault();
-        editPost();
-      }}
-    >
-      <input
-        type="text"
-        placeholder={currentPost.title}
-        onChange={(event) => setNewTitle(event.target.value)}
-      />
-      <input
-        type="text"
-        placeholder={currentPost.description}
-        onChange={(event) => setNewDescription(event.target.value)}
-      />
-      <input
-        type="text"
-        placeholder={currentPost.location}
-        onChange={(event) => setNewLocation(event.target.value)}
-      />
-      <input
-        type="text"
-        placeholder={currentPost.price}
-        onChange={(event) => setNewPrice(event.target.value)}
-      />
-      <input
-        type="checkbox"
-        checked={newWillDeliver}
-        onChange={(event) => newWillDeliver(event.target.checked)}
-      />
-      {/* <Link to="/posts"> */}
-      <button type="submit">Edit Post</button>
-      {/* </Link> */}
-    </form>
+    <div id="editPostForm">
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          editPost();
+        }}
+      >
+        <label className="editPostHeading">
+          Title
+          <input
+            className="editPostInput"
+            type="text"
+            placeholder={currentPost.title}
+            onChange={(event) => setNewTitle(event.target.value)}
+          />
+        </label>
+        <label>
+          Description
+          <input
+            className="editPostInput"
+            type="text"
+            placeholder={currentPost.description}
+            onChange={(event) => setNewDescription(event.target.value)}
+          />
+        </label>
+        <label>
+          Location
+          <input
+            className="editPostInput"
+            type="text"
+            placeholder={currentPost.location}
+            onChange={(event) => setNewLocation(event.target.value)}
+          />
+        </label>
+        <label>
+          Price
+          <input
+            className="editPostInput"
+            type="text"
+            placeholder={currentPost.price}
+            onChange={(event) => setNewPrice(event.target.value)}
+          />
+        </label>
+        <label>
+          <input
+            className="editPostInput"
+            id="editPostCheckBox"
+            type="checkbox"
+            checked={newWillDeliver}
+            onChange={(event) => newWillDeliver(event.target.checked)}
+          />
+          Will Deliver?
+        </label>
+        {/* <Link to="/posts"> */}
+        <button type="submit" id="editPostDone">
+          Done
+        </button>
+        {/* </Link> */}
+      </form>
+    </div>
   );
 };
 

@@ -6,6 +6,7 @@ import { BrowserRouter as Router } from "react-router-dom/cjs/react-router-dom.m
 const COHORT_NAME = "2303-FTB-ET-WEB-AM";
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
 const postId = localStorage.postid;
+const token = localStorage.token;
 
 const ViewPost = ({ post, currentPost, setCurrentPost }) => {
   //do I use another try/catch here to get post data or do i get it passed as a prop??
@@ -13,29 +14,6 @@ const ViewPost = ({ post, currentPost, setCurrentPost }) => {
 
   const postId = currentPost._id;
   console.log("Post id:", postId);
-
-  const postMessage = async () => {
-    try {
-      const response = await fetch(`${BASE_URL}/posts/${postId}/messages`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.token}`,
-        },
-        body: JSON.stringify({
-          message: {
-            content: "Do you still have this?  Would you take $10 less?",
-          },
-        }),
-      });
-
-      const result = await response.json();
-      console.log(result);
-      return result;
-    } catch (err) {
-      console.error(err);
-    }
-  };
 
   const deletePost = async () => {
     try {
@@ -88,7 +66,9 @@ const ViewPost = ({ post, currentPost, setCurrentPost }) => {
         <Link to="/editpost">
           <button id="viewPostEditButton">Edit</button>
         </Link>
-        <button id="viewPostMessageButton">Message</button>
+        <Link to="/postmessage">
+          <button id="viewPostMessageButton">Message</button>
+        </Link>
         <p>(must be original user's post to edit or delete)</p>
       </div>
       <div id="viewPostMessagesSection">
